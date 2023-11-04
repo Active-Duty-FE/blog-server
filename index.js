@@ -26,6 +26,7 @@ app.get("/post", (req, res) => {
   });
 });
 app.get("/post/:id", (req, res) => {
+  const { id } = req.params;
   connection.query(`SELECT * from post where id=${id}`, (err, rows, fields) => {
     if (err) throw err;
     // rest(() =>
@@ -102,6 +103,7 @@ app.get("/thought", (req, res) => {
   });
 });
 app.get("/thought/:id", (req, res) => {
+  const { id } = req.params;
   connection.query(
     `SELECT * from thought where id=${id}`,
     (err, rows, fields) => {
